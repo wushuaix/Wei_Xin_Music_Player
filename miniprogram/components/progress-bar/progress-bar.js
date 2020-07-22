@@ -62,6 +62,7 @@ Component({
       // console.log('end', isMoving)
     },
     _getMovableDis() {
+      //获取当前进度条的宽度
       const query = this.createSelectorQuery()
       query.select('.movable-area').boundingClientRect()
       query.select('.movable-view').boundingClientRect()
@@ -131,6 +132,7 @@ Component({
 
       backgroundAudioManager.onEnded(() => {
         console.log("onEnded")
+        //子组件触发一个事件传递给父组件,实现自动播放下一首歌的功能
         this.triggerEvent('musicEnd')
       })
 

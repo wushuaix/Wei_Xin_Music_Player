@@ -28,20 +28,20 @@ Page({
   },
 
   _loadMusicDetail(musicId) {
-    // if (musicId == app.getPlayMusicId()) {
-    //   this.setData({
-    //     isSame: true
-    //   })
-    // } else {
-    //   this.setData({
-    //     isSame: false
-    //   })
-    // }
-    // if (!this.data.isSame) {
-    //   backgroundAudioManager.stop()
-    // }
+    if (musicId == app.getPlayMusicId()) {
+      this.setData({
+        isSame: true
+      })
+    } else {
+      this.setData({
+        isSame: false
+      })
+    }
+    if (!this.data.isSame) {
+      backgroundAudioManager.stop()
+    }
     let music = musiclist[nowPlayingIndex]
-    console.log(music)
+    //console.log(music)
     wx.setNavigationBarTitle({
       title: music.name,
     })
@@ -50,8 +50,8 @@ Page({
       picUrl: music.al.picUrl,
       isPlaying: false,
     })
-    console.log(musicId, typeof musicId)
-    //app.setPlayMusicId(musicId)
+    //console.log(musicId, typeof musicId)
+    app.setPlayMusicId(musicId)
 
     // wx.showLoading({
     //   title: '歌曲加载中',
@@ -63,8 +63,8 @@ Page({
         $url: 'musicUrl',
       }
     }).then((res) => {
-      console.log(res)
-      console.log(JSON.parse(res.result))
+      //console.log(res)
+     // console.log(JSON.parse(res.result))
       let result = JSON.parse(res.result)
       if (result.data[0].url == null) {
         wx.showToast({
@@ -80,7 +80,7 @@ Page({
         backgroundAudioManager.epname = music.al.name
 
         // 保存播放历史
-        this.savePlayHistory()
+        //this.savePlayHistory()
       }
 
       this.setData({
@@ -96,7 +96,7 @@ Page({
           $url: 'lyric',
         }
       }).then((res) => {
-        console.log(res)
+        //console.log(res)
         let lyric = '暂无歌词'
         const lrc = JSON.parse(res.result).lrc
         if (lrc) {
@@ -146,7 +146,7 @@ Page({
   timeUpdate(event) {
     this.selectComponent('.lyric').update(event.detail.currentTime)
   },
-
+  //onPlay,onPause:控制面板和微信内置播放器联动
   onPlay() {
     this.setData({
       isPlaying: true,

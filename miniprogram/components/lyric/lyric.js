@@ -80,14 +80,15 @@ Component({
     },
     _parseLyric(sLyric) {
       let line = sLyric.split('\n')
-      // console.log(line)
+      //console.log(line)
       let _lrcList = []
       line.forEach((elem) => {
         let time = elem.match(/\[(\d{2,}):(\d{2})(?:\.(\d{2,3}))?]/g)
+        //console.log(time)
         if (time != null) {
           let lrc = elem.split(time)[1]
           let timeReg = time[0].match(/(\d{2,}):(\d{2})(?:\.(\d{2,3}))?/)
-          // console.log(timeReg)
+          //console.log(timeReg)
           // 把时间转换为秒
           let time2Seconds = parseInt(timeReg[1]) * 60 + parseInt(timeReg[2]) + parseInt(timeReg[3]) / 1000
           _lrcList.push({

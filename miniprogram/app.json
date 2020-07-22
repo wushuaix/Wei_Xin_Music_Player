@@ -4,7 +4,8 @@
     "pages/blog/blog",
     "pages/profile/profile",
     "pages/musiclist/musiclist",
-    "pages/player/player"
+    "pages/player/player",
+    "pages/blog-edit/blog-edit"
   ],
   "requiredBackgroundModes": ["audio", "location"],
   "window": {
@@ -25,13 +26,13 @@
           "selectedIconPath": "images/music-actived.png"
         },
         {
-          "pagePath": "pages/playlist/playlist",
+          "pagePath": "pages/blog/blog",
           "text": "发现",
           "iconPath": "images/blog.png",
           "selectedIconPath": "images/blog-actived.png"
         },
         {
-          "pagePath": "pages/playlist/playlist",
+          "pagePath": "pages/profile/profile",
           "text": "我的",
           "iconPath": "images/profile.png",
           "selectedIconPath": "images/profile-actived.png"
