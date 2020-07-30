@@ -80,7 +80,7 @@ Page({
         backgroundAudioManager.epname = music.al.name
 
         // 保存播放历史
-        //this.savePlayHistory()
+        this.savePlayHistory()
       }
 
       this.setData({
@@ -166,7 +166,7 @@ Page({
     const history = wx.getStorageSync(openid)
     let bHave = false
     for (let i = 0, len = history.length; i < len; i++) {
-      if (history[i].id == music.id) {
+      if (history[i].id === music.id) {
         bHave = true
         break
       }

@@ -19,7 +19,7 @@ Component({
    */
   methods: {
     onGotUserInfo(event) {
-      console.log(event)
+      //console.log(event)
       const userInfo = event.detail.userInfo
       // 允许授权
       if (userInfo) {

@@ -1,5 +1,5 @@
 // components/search/search.js
-let keyword = ''
+let keyword=''
 Component({
   /**
    * 组件的属性列表
@@ -19,7 +19,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+   
   },
 
   /**
@@ -31,7 +31,7 @@ Component({
     },
 
     onSearch() {
-      // console.log(keyword)
+      //console.log(keyword)
       // blog
       this.triggerEvent('search', {
         keyword

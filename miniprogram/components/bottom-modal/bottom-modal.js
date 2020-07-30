@@ -8,8 +8,8 @@ Component({
   },
 
   options: {
-    styleIsolation: 'apply-shared',
-    multipleSlots: true,
+    styleIsolation: 'apply-shared',//样式隔离
+    multipleSlots: true,//允许使用具名插槽
   },
 
   /**

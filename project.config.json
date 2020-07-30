@@ -20,6 +20,7 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
+		"useIsolateContext": true,
 		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
@@ -69,6 +70,20 @@
 					"id": 2,
 					"name": "blog",
 					"pathName": "pages/blog/blog",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "博客编辑",
+					"pathName": "pages/blog-edit/blog-edit",
+					"query": "nickName=\"吴帅\"$avatarUrl=\"https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLn6JWqG…taIEnKNic2SMbicCufBKraz6DR1ZFrRhYVqxTn3yhcRJQ/132\"",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "我的",
+					"pathName": "pages/profile/profile",
 					"query": "",
 					"scene": null
 				}
