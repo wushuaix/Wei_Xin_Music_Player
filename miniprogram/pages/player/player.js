@@ -78,6 +78,8 @@ Page({
         backgroundAudioManager.coverImgUrl = music.al.picUrl
         backgroundAudioManager.singer = music.ar[0].name
         backgroundAudioManager.epname = music.al.name
+        backgroundAudioManager.onPrev(this.onPrev)
+        backgroundAudioManager.onNext(this.onNext)
 
         // 保存播放历史
         this.savePlayHistory()
@@ -86,7 +88,7 @@ Page({
       this.setData({
         isPlaying: true
       })
-      wx.hideLoading()
+      //wx.hideLoading()
 
       // 加载歌词
       wx.cloud.callFunction({

@@ -77,26 +77,26 @@ Component({
 
     _bindBGMEvent() {
       backgroundAudioManager.onPlay(() => {
-        console.log('onPlay')
+        //console.log('onPlay')
         isMoving = false
         this.triggerEvent('musicPlay')
       })
 
       backgroundAudioManager.onStop(() => {
-        console.log('onStop')
+        //console.log('onStop')
       })
 
       backgroundAudioManager.onPause(() => {
-        console.log('Pause')
+        //console.log('Pause')
         this.triggerEvent('musicPause')
       })
 
       backgroundAudioManager.onWaiting(() => {
-        console.log('onWaiting')
+        //console.log('onWaiting')
       })
 
       backgroundAudioManager.onCanplay(() => {
-        console.log('onCanplay')
+        //console.log('onCanplay')
         // console.log(backgroundAudioManager.duration)
         if (typeof backgroundAudioManager.duration != 'undefined') {
           this._setTime()
@@ -131,7 +131,7 @@ Component({
       })
 
       backgroundAudioManager.onEnded(() => {
-        console.log("onEnded")
+        //console.log("onEnded")
         //子组件触发一个事件传递给父组件,实现自动播放下一首歌的功能
         this.triggerEvent('musicEnd')
       })

@@ -80,7 +80,7 @@ Page({
       sizeType:['original','compressed'],
       sourceType:['album','camera'],
       success: (res)=> {
-        console.log(res)
+        //console.log(res)
         this.setData({
           images: this.data.images.concat(res.tempFilePaths)
         })
