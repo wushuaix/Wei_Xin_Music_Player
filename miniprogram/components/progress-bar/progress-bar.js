@@ -33,7 +33,7 @@ Component({
       }
       this._getMovableDis()
       this._bindBGMEvent()
-    },
+    }
   },
 
   /**
