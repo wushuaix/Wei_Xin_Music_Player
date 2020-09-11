@@ -5,9 +5,10 @@ cloud.init()
 
 const db = cloud.database()
 
-const rp = require('request-promise')
+//const rp = require('request-promise')
+const axios=require('axios')
 
-const URL = 'http://musicapi.xiecheng.live/personalized'
+const URL = 'https://apis.imooc.com/personalized?icode=66E7BBF2D9E56A32'
 
 const playlistCollection = db.collection('playlist')
 
@@ -35,10 +36,16 @@ exports.main = async(event, context) => {
     })
   }
 
-  const playlist = await rp(URL).then((res) => {
-    return JSON.parse(res).result
-  })
-
+  // const playlist = await rp(URL).then((res) => {
+  //   return JSON.parse(res).result
+  // })
+  const {data}=await axios.get(URL)
+  const playlist=plRes.data.result
+  if(data.code>=1000){
+    console.log(data.msg)
+    return 0
+  }
+  const playlist=data.result
   const newData = []
   for (let i = 0, len1 = playlist.length; i < len1; i++) {
     let flag = true
@@ -49,16 +56,16 @@ exports.main = async(event, context) => {
       }
     }
     if (flag) {
-      newData.push(playlist[i])
+      // 更新代码: 给每个歌单信息增加createTime属性
+      let pl = playlist[i]
+      pl.createTime = db.serverDate()
+      // newData.push(playlist[i])
+      newData.push(pl)
     }
   }
-
-  for (let i = 0, len = newData.length; i < len; i++) {
+  if(playlist.length>0){
     await playlistCollection.add({
-      data: {
-        ...newData[i],
-        createTime: db.serverDate(),
-      }
+      data: [...playlist]
     }).then((res) => {
       console.log('插入成功')
     }).catch((err) => {
