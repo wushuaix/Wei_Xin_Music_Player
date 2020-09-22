@@ -40,7 +40,6 @@ exports.main = async(event, context) => {
   //   return JSON.parse(res).result
   // })
   const {data}=await axios.get(URL)
-  const playlist=plRes.data.result
   if(data.code>=1000){
     console.log(data.msg)
     return 0
